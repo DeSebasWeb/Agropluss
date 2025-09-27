@@ -1,16 +1,32 @@
-import express, {type Request, type Response} from "express";
+import express, { type Request, type Response } from "express";
 
-//Se gestionan las rutas acaconst app = express();
+class App {
+  private app: express.Application;
+  constructor() {
+    this.app = express();
+  }
 
-const app = express();
+  private routes(): void {
+    this.app.get("/", (request: Request, response: Response) => {
+      response.send("hola mundo");
+    });
 
-app.get("/", (request: Request, response: Response)=>{
-    response.send("hola mundo")
+    this.app.get("/check", (request: Request, response: Response) => {
+      response.send("Check");
+    });
 
-});
+    this.app.get("/test", (request: Request, response: Response) => {
+      response.send("esto es una prueba");
+    });
+    this.app.get("/nodemon", (request: Request, response: Response) => {
+      response.send("nodemon funcionando");
+    });
+  }
 
-app.get("/check", (request: Request, response: Response)=>{
-    response.send("Check")
-});
+  getApp(): express.Application {
+    this.routes();
+    return this.app;
+  }
+}
 
-export default app;
+export default new App().getApp();
