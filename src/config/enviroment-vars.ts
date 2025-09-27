@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 export type ReturnEnviromentVars = {
     PORT: number;
+    
 }
 
 type ValidationEnviromentVars = {
