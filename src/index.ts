@@ -1,6 +1,6 @@
-import "./config/enviroment-vars.js";
+import "./infraestructure/config/enviroment-vars.js";
 import app from './app.js';
-import { ServerBoostrap } from "./boostrap/server.boostrap.js";
+import { ServerBoostrap } from "./infraestructure/boostrap/server.boostrap.js";
 
 const server = new ServerBoostrap(app);
 
